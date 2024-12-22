@@ -1,17 +1,19 @@
 class Students {
-    constructor(parameter) {
-        this.name = parameter.name;
-        this.surname = parameter.surname;
-        this.group = parameter.group;
+    constructor(name, surname, group, age) {
+        this.name = name;
+        this.surname = surname;
+        this.group = group;
+        this.age = age;
     }
+
     information() {
-        console.log(this.name);
+        console.log(`Name: ${this.name}, Surname: ${this.surname}, Group: ${this.group}, Age: ${this.age}`);
     }
 }
 
-let student1 = new Students({ name: 'Sergey', surname: 'Ivanov', group: '27-KM' });
-let student2 = new Students({ name: 'Andrey', surname: 'Petrov', group: '317-IS' });
-let student3 = new Students({ name: 'Elena', surname: 'Sidorova', group: '18-B' });
+let student1 = new Students('Sergey', 'Ivanov', '27-KM', 20);
+let student2 = new Students('Andrey', 'Petrov', '317-IS', 22);
+let student3 = new Students('Elena', 'Sidorova', '18-B', 19);
 
 student1.information();
 student2.information();
@@ -21,11 +23,17 @@ class Component {
     constructor(selector) {
         this.el = document.querySelector(selector);
     }
+
     blockHide() {
         this.el.style.display = 'none';
     }
+
     editColor(color) {
         this.el.style.background = color;
+    }
+
+    editBorder(border) {
+        this.el.style.border = border;
     }
 }
 
@@ -44,3 +52,7 @@ let box1 = new Box({
     height: 50,
     color: 'blue'
 });
+
+box1.editColor('red');
+
+box1.editBorder('2px solid black');
